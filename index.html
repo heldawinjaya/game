@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Adventure: My Hobby! - Kelas 3 SD</title>
+    <!-- Tailwind CSS untuk tata letak responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts ramah anak: Fredoka & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Pengaturan Font Utama */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(180deg, #38BDF8 0%, #BAE6FD 65%, #E0F2FE 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        h1, h2, h3, .font-fredoka {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Latar Belakang Awan Bergerak & Bukit Rumput */
+        .cloud {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 9999px;
+            z-index: 0;
+            pointer-events: none;
+            animation: floatCloud linear infinite;
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+        }
+        .cloud-1 {
+            width: 140px; height: 48px; top: 8%; left: -160px;
+            animation-duration: 38s;
+        }
+        .cloud-1::before { width: 65px; height: 65px; top: -32px; left: 20px; }
+        .cloud-1::after { width: 50px; height: 50px; top: -22px; left: 72px; }
+
+        .cloud-2 {
+            width: 180px; height: 56px; top: 22%; left: -200px;
+            animation-duration: 52s;
+            animation-delay: -18s;
+            opacity: 0.7;
+        }
+        .cloud-2::before { width: 80px; height: 80px; top: -38px; left: 28px; }
+        .cloud-2::after { width: 60px; height: 60px; top: -26px; left: 95px; }
+
+        .cloud-3 {
+            width: 120px; height: 42px; top: 45%; left: -140px;
+            animation-duration: 44s;
+            animation-delay: -8s;
+            opacity: 0.6;
+        }
+        .cloud-3::before { width: 55px; height: 55px; top: -26px; left: 18px; }
+        .cloud-3::after { width: 42px; height: 42px; top: -18px; left: 62px; }
+
+        @keyframes floatCloud {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 250px)); }
+        }
+
+        .meadow-bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 110px;
+            background: linear-gradient(180deg, #4ADE80 0%, #22C55E 100%);
+            border-top-left-radius: 50% 35px;
+            border-top-right-radius: 50% 35px;
+            z-index: 0;
+            pointer-events: none;
+            box-shadow: 0 -6px 0 #86EFAC;
+        }
+
+        /* Gaya Tombol Kartun 3D (Bouncy 3D Button Effect) */
+        .btn-3d {
+            transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease, filter 0.15s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        .btn-3d:hover:not(:disabled) {
+            filter: brightness(1.04);
+            transform: translateY(-2px);
+        }
+        .btn-3d:active:not(:disabled) {
+            transform: translateY(4px);
+        }
+        .btn-3d:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .btn-yellow {
+            background: linear-gradient(180deg, #FDE047 0%, #FACC15 100%);
+            border: 3px solid #EAB308;
+            box-shadow: 0 6px 0 #CA8A04, 0 10px 18px rgba(202, 138, 4, 0.25);
+            color: #713F12;
+        }
+        .btn-yellow:active:not(:disabled) { box-shadow: 0 2px 0 #CA8A04; }
+
+        .btn-green {
+            background: linear-gradient(180deg, #4ADE80 0%, #22C55E 100%);
+            border: 3px solid #16A34A;
+            box-shadow: 0 6px 0 #15803D, 0 10px 18px rgba(21, 128, 61, 0.25);
+            color: #FFFFFF;
+        }
+        .btn-green:active:not(:disabled) { box-shadow: 0 2px 0 #15803D; }
+
+        .btn-blue {
+            background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 100%);
+            border: 3px solid #2563EB;
+            box-shadow: 0 6px 0 #1D4ED8, 0 10px 18px rgba(29, 78, 216, 0.25);
+            color: #FFFFFF;
+        }
+        .btn-blue:active:not(:disabled) { box-shadow: 0 2px 0 #1D4ED8; }
+
+        .btn-orange {
+            background: linear-gradient(180deg, #FB923C 0%, #F97316 100%);
+            border: 3px solid #EA580C;
+            box-shadow: 0 6px 0 #C2410C, 0 10px 18px rgba(194, 65, 12, 0.25);
+            color: #FFFFFF;
+        }
+        .btn-orange:active:not(:disabled) { box-shadow: 0 2px 0 #C2410C; }
+
+        .btn-purple {
+            background: linear-gradient(180deg, #C084FC 0%, #A855F7 100%);
+            border: 3px solid #9333EA;
+            box-shadow: 0 6px 0 #7E22CE, 0 10px 18px rgba(126, 34, 206, 0.25);
+            color: #FFFFFF;
+        }
+        .btn-purple:active:not(:disabled) { box-shadow: 0 2px 0 #7E22CE; }
+
+        .btn-white {
+            background: #FFFFFF;
+            border: 3px solid #CBD5E1;
+            box-shadow: 0 6px 0 #94A3B8, 0 8px 15px rgba(15, 23, 42, 0.08);
+            color: #1E293B;
+        }
+        .btn-white:active:not(:disabled) { box-shadow: 0 2px 0 #94A3B8; }
+
+        .btn-red {
+            background: linear-gradient(180deg, #F87171 0%, #EF4444 100%);
+            border: 3px solid #DC2626;
+            box-shadow: 0 6px 0 #B91C1C;
+            color: #FFFFFF;
+        }
+        .btn-red:active:not(:disabled) { box-shadow: 0 2px 0 #B91C1C; }
+
+        /* Kartu Utama Bergaya Buku Cerita Anak */
+        .story-card {
+            background: rgba(255, 255, 255, 0.96);
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 10px 0 rgba(14, 116, 144, 0.18), 0 20px 35px rgba(2, 132, 199, 0.18);
+            border-radius: 28px;
+        }
+
+        /* Animasi Interaktif */
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.85) translateY(12px); }
+            70% { transform: scale(1.03) translateY(-2px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-pop {
+            animation: popIn 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px); }
+        }
+        .animate-float-slow {
+            animation: gentleBounce 2.8s ease-in-out infinite;
+        }
+
+        @keyframes shakeWrong {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-6px); }
+            80% { transform: translateX(6px); }
+        }
+        .animate-shake {
+            animation: shakeWrong 0.42s ease-in-out;
+        }
+
+        @keyframes starPop {
+            0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+            70% { transform: scale(1.25) rotate(8deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        .animate-star {
+            animation: starPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* Canvas Konfeti */
+        #confettiCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col justify-between">
+
+    <!-- Elemen Dekoratif Latar Belakang -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="meadow-bg"></div>
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- HEADER / TOP HUD BAR -->
+    <header class="relative z-20 w-full max-w-5xl mx-auto px-3 sm:px-6 pt-3 sm:pt-4">
+        <div class="bg-white/95 backdrop-blur-sm border-4 border-white shadow-lg rounded-3xl px-3 sm:px-5 py-2.5 flex items-center justify-between gap-2">
+            <!-- Tombol Kembali ke Menu (Muncul saat di dalam mode permainan) -->
+            <div class="flex items-center gap-2">
+                <button id="btnHome" onclick="goHome()" class="hidden btn-3d btn-yellow px-3 sm:px-4 py-2 rounded-2xl font-fredoka font-bold text-sm sm:text-base flex items-center gap-1.5" aria-label="Kembali ke Menu Utama">
+                    <span>🏠</span>
+                    <span class="hidden sm:inline">Menu</span>
+                </button>
+                <div id="brandBadge" class="flex items-center gap-2">
+                    <span class="text-2xl sm:text-3xl">🎒</span>
+                    <div>
+                        <span class="font-fredoka font-bold text-sky-600 text-base sm:text-lg leading-none block">Kelas 3 SD</span>
+                        <span class="text-xs font-extrabold text-amber-500 tracking-wide uppercase">Bahasa Inggris</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistik Bintang, Skor, dan Tombol Suara -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Total Bintang -->
+                <div class="bg-amber-100 border-2 border-amber-300 rounded-2xl px-3 py-1.5 flex items-center gap-1.5 shadow-inner" title="Total Bintang Terkumpul">
+                    <span class="text-lg sm:text-xl">⭐</span>
+                    <span id="hudStars" class="font-fredoka font-bold text-amber-700 text-base sm:text-lg">0</span>
+                </div>
+
+                <!-- Total Skor -->
+                <div class="bg-emerald-100 border-2 border-emerald-300 rounded-2xl px-3 py-1.5 flex items-center gap-1.5 shadow-inner" title="Total Skor">
+                    <span class="text-lg sm:text-xl">🏆</span>
+                    <span id="hudScore" class="font-fredoka font-bold text-emerald-700 text-base sm:text-lg">0</span>
+                </div>
+
+                <!-- Tombol Mute / Unmute Audio -->
+                <button id="btnMute" onclick="toggleMute()" class="btn-3d btn-blue w-11 h-11 rounded-2xl flex items-center justify-center text-xl" title="Matikan / Nyalakan Suara" aria-label="Pengaturan Suara">
+                    🔊
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA APLIKASI -->
+    <main id="appContainer" class="relative z-10 flex-1 w-full max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-6 flex flex-col justify-center">
+        <!-- Konten layar dirender secara dinamis oleh JavaScript -->
+    </main>
+
+    <!-- FOOTER RINGKAS -->
+    <footer class="relative z-10 text-center pb-3 pt-1 px-4">
+        <p class="text-xs sm:text-sm font-extrabold text-emerald-950/80 drop-shadow-sm">
+            🌟 Belajar Bahasa Inggris Materi "My Hobby" — Semangat Belajar & Bermain! 🌟
+        </p>
+    </footer>
+
+    <script>
+        /* =========================================================================
+           1. DATA MATERI KOSAKATA & KALIMAT "MY HOBBY" (KELAS 3 SD - KURIKULUM MERDEKA)
+           ========================================================================= */
+        const HOBBIES_DATA = [
+            {
+                id: 'swimming',
+                en: 'Swimming',
+                idText: 'Berenang',
+                emoji: '🏊‍♂️',
+                decor: '💦🌊',
+                bgClass: 'from-sky-400 to-blue-500',
+                badgeBg: 'bg-sky-100 border-sky-300',
+                exampleEn: 'My hobby is swimming.',
+                exampleId: 'Hobiku adalah berenang.'
+            },
+            {
+                id: 'reading',
+                en: 'Reading',
+                idText: 'Membaca',
+                emoji: '📖',
+                decor: '📚✨',
+                bgClass: 'from-amber-400 to-orange-500',
+                badgeBg: 'bg-amber-100 border-amber-300',
+                exampleEn: 'I like reading a book.',
+                exampleId: 'Aku suka membaca buku.'
+            },
+            {
+                id: 'singing',
+                en: 'Singing',
+                idText: 'Bernyanyi',
+                emoji: '🎤',
+                decor: '🎵🎶',
+                bgClass: 'from-pink-400 to-rose-500',
+                badgeBg: 'bg-pink-100 border-pink-300',
+                exampleEn: 'She likes singing a song.',
+                exampleId: 'Dia (pr) suka menyanyikan lagu.'
+            },
+            {
+                id: 'dancing',
+                en: 'Dancing',
+                idText: 'Menari',
+                emoji: '💃',
+                decor: '✨🎶',
+                bgClass: 'from-purple-400 to-fuchsia-500',
+                badgeBg: 'bg-purple-100 border-purple-300',
+                exampleEn: 'My hobby is dancing.',
+                exampleId: 'Hobiku adalah menari.'
+            },
+            {
+                id: 'drawing',
+                en: 'Drawing',
+                idText: 'Menggambar',
+                emoji: '✏️',
+                decor: '🖍️📄',
+                bgClass: 'from-yellow-400 to-amber-500',
+                badgeBg: 'bg-yellow-100 border-yellow-300',
+                exampleEn: 'He likes drawing a house.',
+                exampleId: 'Dia (lk) suka menggambar rumah.'
+            },
+            {
+                id: 'painting',
+                en: 'Painting',
+                idText: 'Melukis',
+                emoji: '🎨',
+                decor: '🖌️🌈',
+                bgClass: 'from-indigo-400 to-violet-500',
+                badgeBg: 'bg-indigo-100 border-indigo-300',
+                exampleEn: 'I like painting with colors.',
+                exampleId: 'Aku suka melukis dengan warna.'
+            },
+            {
+                id: 'cooking',
+                en: 'Cooking',
+                idText: 'Memasak',
+                emoji: '👨‍🍳',
+                decor: '🍳🥗',
+                bgClass: 'from-orange-400 to-red-500',
+                badgeBg: 'bg-orange-100 border-orange-300',
+                exampleEn: 'My hobby is cooking.',
+                exampleId: 'Hobiku adalah memasak.'
+            },
+            {
+                id: 'cycling',
+                en: 'Cycling',
+                idText: 'Bersepeda',
+                emoji: '🚴‍♂️',
+                decor: '🚲🌳',
+                bgClass: 'from-emerald-400 to-teal-500',
+                badgeBg: 'bg-emerald-100 border-emerald-300',
+                exampleEn: 'He likes cycling in the park.',
+                exampleId: 'Dia (lk) suka bersepeda di taman.'
+            },
+            {
+                id: 'football',
+                en: 'Playing football',
+                idText: 'Bermain sepak bola',
+                emoji: '⚽',
+                decor: '🥅👟',
+                bgClass: 'from-green-500 to-emerald-600',
+                badgeBg: 'bg-green-100 border-green-300',
+                exampleEn: 'They like playing football.',
+                exampleId: 'Mereka suka bermain sepak bola.'
+            },
+            {
+                id: 'badminton',
+                en: 'Playing badminton',
+                idText: 'Bermain bulu tangkis',
+                emoji: '🏸',
+                decor: '✨🏆',
+                bgClass: 'from-cyan-400 to-sky-500',
+                badgeBg: 'bg-cyan-100 border-cyan-300',
+                exampleEn: 'I like playing badminton.',
+                exampleId: 'Aku suka bermain bulu tangkis.'
+            },
+            {
+                id: 'fishing',
+                en: 'Fishing',
+                idText: 'Memancing',
+                emoji: '🎣',
+                decor: '🐟💧',
+                bgClass: 'from-blue-400 to-indigo-500',
+                badgeBg: 'bg-blue-100 border-blue-300',
+                exampleEn: 'My hobby is fishing.',
+                exampleId: 'Hobiku adalah memancing.'
+            },
+            {
+                id: 'gardening',
+                en: 'Gardening',
+                idText: 'Berkebun',
+                emoji: '🌱',
+                decor: '🌻🪴',
+                bgClass: 'from-lime-400 to-green-500',
+                badgeBg: 'bg-lime-100 border-lime-300',
+                exampleEn: 'She likes gardening.',
+                exampleId: 'Dia (pr) suka berkebun.'
+            }
+        ];
+
+        // Daftar tantangan Susun Kalimat (Sentence Builder)
+        const SENTENCE_CHALLENGES = [
+            { hobbyId: 'swimming', words: ['My', 'hobby', 'is', 'swimming'], idHint: 'Hobiku adalah berenang.' },
+            { hobbyId: 'reading', words: ['I', 'like', 'reading', 'a', 'book'], idHint: 'Aku suka membaca sebuah buku.' },
+            { hobbyId: 'singing', words: ['She', 'likes', 'singing', 'a', 'song'], idHint: 'Dia (perempuan) suka menyanyikan lagu.' },
+            { hobbyId: 'dancing', words: ['My', 'hobby', 'is', 'dancing'], idHint: 'Hobiku adalah menari.' },
+            { hobbyId: 'drawing', words: ['He', 'likes', 'drawing', 'a', 'cat'], idHint: 'Dia (laki-laki) suka menggambar kucing.' },
+            { hobbyId: 'painting', words: ['I', 'like', 'painting', 'flowers'], idHint: 'Aku suka melukis bunga-bunga.' },
+            { hobbyId: 'cooking', words: ['My', 'mother', 'likes', 'cooking'], idHint: 'Ibuku suka memasak.' },
+            { hobbyId: 'cycling', words: ['He', 'likes', 'cycling', 'every', 'morning'], idHint: 'Dia (laki-laki) suka bersepeda setiap pagi.' },
+            { hobbyId: 'football', words: ['They', 'like', 'playing', 'football'], idHint: 'Mereka suka bermain sepak bola.' },
+            { hobbyId: 'badminton', words: ['I', 'like', 'playing', 'badminton'], idHint: 'Aku suka bermain bulu tangkis.' },
+            { hobbyId: 'fishing', words: ['My', 'father', 'likes', 'fishing'], idHint: 'Ayahku suka memancing.' },
+            { hobbyId: 'gardening', words: ['She', 'likes', 'gardening', 'at', 'home'], idHint: 'Dia (perempuan) suka berkebun di rumah.' }
+        ];
+
+        /* =========================================================================
+           2. SISTEM AUDIO CERIA (WEB AUDIO API) & PENGUCAPAN (WEB SPEECH API)
+           ========================================================================= */
+        let audioCtx = null;
+        let isMuted = false;
+
+        // Inisialisasi Web Audio Context saat interaksi pertama pengguna
+        function initAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Efek suara sintetis tanpa file eksternal
+        const SoundFX = {
+            playTone(freq, type, duration, delay = 0, volume = 0.25) {
+                if (isMuted) return;
+                try {
+                    initAudioContext();
+                    if (!audioCtx) return;
+
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+
+                    gain.gain.setValueAtTime(volume, audioCtx.currentTime + delay);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start(audioCtx.currentTime + delay);
+                    osc.stop(audioCtx.currentTime + delay + duration);
+                } catch (e) {
+                    // Abaikan jika browser memblokir audio sebelum klik
+                }
+            },
+            click() {
+                this.playTone(580, 'sine', 0.08, 0, 0.18);
+            },
+            pop() {
+                this.playTone(440, 'triangle', 0.09, 0, 0.2);
+                this.playTone(660, 'sine', 0.09, 0.04, 0.15);
+            },
+            correct() {
+                // Melodi ceria naik (C5 - E5 - G5 - C6)
+                this.playTone(523.25, 'triangle', 0.14, 0, 0.25);
+                this.playTone(659.25, 'triangle', 0.14, 0.09, 0.25);
+                this.playTone(783.99, 'triangle', 0.14, 0.18, 0.25);
+                this.playTone(1046.50, 'sine', 0.35, 0.27, 0.3);
+            },
+            wrong() {
+                // Nada lembut ramah anak (tidak mengejutkan)
+                this.playTone(310, 'sine', 0.18, 0, 0.22);
+                this.playTone(250, 'sine', 0.26, 0.14, 0.22);
+            },
+            win() {
+                // Fanfare kemenangan ceria
+                const notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 1046.50];
+                const times = [0, 0.12, 0.24, 0.36, 0.52, 0.66];
+                notes.forEach((n, idx) => {
+                    this.playTone(n, 'triangle', 0.25, times[idx], 0.28);
+                });
+            }
+        };
+
+        // Fungsi Text-to-Speech Bahasa Inggris (en-US)
+        function speakEnglish(text, rate = 0.88) {
+            if (isMuted) return;
+            try {
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'en-US';
+                    utterance.rate = rate; // Sedikit lebih lambat agar jelas untuk siswa kelas 3 SD
+                    utterance.pitch = 1.08; // Nada ramah & cerah
+
+                    const voices = window.speechSynthesis.getVoices();
+                    const preferredVoice = voices.find(v =>
+                        v.lang.includes('en-US') && (v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Natural'))
+                    ) || voices.find(v => v.lang.includes('en-US')) || voices.find(v => v.lang.includes('en'));
+
+                    if (preferredVoice) {
+                        utterance.voice = preferredVoice;
+                    }
+                    window.speechSynthesis.speak(utterance);
+                }
+            } catch (e) {
+                // Fallback diam jika TTS tidak didukung perangkat
+            }
+        }
+
+        // Memuat daftar suara saat tersedia
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            const btn = document.getElementById('btnMute');
+            btn.textContent = isMuted ? '🔇' : '🔊';
+            btn.className = isMuted
+                ? 'btn-3d btn-white w-11 h-11 rounded-2xl flex items-center justify-center text-xl'
+                : 'btn-3d btn-blue w-11 h-11 rounded-2xl flex items-center justify-center text-xl';
+
+            if (isMuted && 'speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            } else {
+                SoundFX.click();
+            }
+        }
+
+        /* =========================================================================
+           3. ANIMASI KONFETI PERAYAAN
+           ========================================================================= */
+        const Confetti = {
+            particles: [],
+            animId: null,
+            launch() {
+                const canvas = document.getElementById('confettiCanvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const colors = ['#FACC15', '#4ADE80', '#38BDF8', '#FB7185', '#C084FC', '#FB923C'];
+                this.particles = [];
+
+                for (let i = 0; i < 95; i++) {
+                    this.particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height - canvas.height,
+                        w: Math.random() * 10 + 6,
+                        h: Math.random() * 6 + 4,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        speedY: Math.random() * 3.5 + 2.5,
+                        speedX: (Math.random() - 0.5) * 2.5,
+                        rotation: Math.random() * 360,
+                        rotSpeed: (Math.random() - 0.5) * 8
+                    });
+                }
+
+                if (this.animId) cancelAnimationFrame(this.animId);
+
+                const animate = () => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    let activeCount = 0;
+
+                    this.particles.forEach(p => {
+                        p.y += p.speedY;
+                        p.x += p.speedX;
+                        p.rotation += p.rotSpeed;
+
+                        if (p.y < canvas.height + 20) activeCount++;
+
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate((p.rotation * Math.PI) / 180);
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                        ctx.restore();
+                    });
+
+                    if (activeCount > 0) {
+                        this.animId = requestAnimationFrame(animate);
+                    } else {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    }
+                };
+                animate();
+            }
+        };
+
+        /* =========================================================================
+           4. MANAJEMEN STATE PERMAINAN & PENYIMPANAN SKOR
+           ========================================================================= */
+        const GAME_STORAGE_KEY = 'english_hobby_grade3_progress_v1';
+
+        let state = {
+            totalStars: 0,
+            totalScore: 0,
+            screen: 'menu', // 'menu' | 'flashcards' | 'quiz' | 'spelling' | 'sentence' | 'result'
+            lastMode: '',
+            lastModeTitle: '',
+
+            // State Flashcards
+            flashIndex: 0,
+            flashFlipped: false,
+            flashVisited: new Set(),
+
+            // State Quiz / Spelling / Sentence (8 soal per sesi)
+            questions: [],
+            qIndex: 0,
+            sessionScore: 0,
+            correctCount: 0,
+            answered: false,
+            feedbackMsg: '',
+            feedbackType: '', // 'success' | 'error' | 'info'
+
+            // State khusus Quiz
+            quizOptions: [],
+            selectedOptionId: null,
+
+            // State khusus Spelling Bee
+            spellingTarget: '',
+            spellingSlots: [], // Array karakter user (null untuk kosong, ' ' untuk spasi otomatis)
+            spellingBank: [],  // Array objek { id, char, used }
+
+            // State khusus Sentence Builder
+            sentenceTargetWords: [],
+            sentenceSelected: [], // Array objek { id, word }
+            sentenceBank: []      // Array objek { id, word, used }
+        };
+
+        // Muat progres tersimpan dari localStorage
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem(GAME_STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    state.totalStars = Number(parsed.totalStars) || 0;
+                    state.totalScore = Number(parsed.totalScore) || 0;
+                }
+            } catch (e) {
+                // Gunakan nilai default jika localStorage tidak tersedia
+            }
+            updateHUD();
+        }
+
+        function saveProgress() {
+            try {
+                localStorage.setItem(GAME_STORAGE_KEY, JSON.stringify({
+                    totalStars: state.totalStars,
+                    totalScore: state.totalScore
+                }));
+            } catch (e) {}
+            updateHUD();
+        }
+
+        function updateHUD() {
+            document.getElementById('hudStars').textContent = state.totalStars;
+            document.getElementById('hudScore').textContent = state.totalScore;
+
+            const btnHome = document.getElementById('btnHome');
+            const brandBadge = document.getElementById('brandBadge');
+            if (state.screen === 'menu') {
+                btnHome.classList.add('hidden');
+                brandBadge.classList.remove('hidden');
+            } else {
+                btnHome.classList.remove('hidden');
+                brandBadge.classList.add('hidden');
+            }
+        }
+
+        // Fungsi utilitas mengacak array (Fisher-Yates Shuffle)
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function goHome() {
+            SoundFX.click();
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            state.screen = 'menu';
+            updateHUD();
+            render();
+        }
+
+        /* =========================================================================
+           5. LOGIKA MASING-MASING MODE BELAJAR & BERMAIN
+           ========================================================================= */
+
+        // --- MODE A: BELAJAR KOSAKATA (FLASHCARDS) ---
+        function startFlashcards() {
+            SoundFX.click();
+            state.screen = 'flashcards';
+            state.flashIndex = 0;
+            state.flashFlipped = false;
+            state.flashVisited = new Set([0]);
+            updateHUD();
+            render();
+            speakEnglish(HOBBIES_DATA[0].en);
+        }
+
+        function changeFlashcard(delta) {
+            SoundFX.click();
+            const total = HOBBIES_DATA.length;
+            state.flashIndex = (state.flashIndex + delta + total) % total;
+            state.flashFlipped = false;
+            state.flashVisited.add(state.flashIndex);
+            render();
+            speakEnglish(HOBBIES_DATA[state.flashIndex].en);
+        }
+
+        function selectFlashcard(index) {
+            SoundFX.click();
+            state.flashIndex = index;
+            state.flashFlipped = false;
+            state.flashVisited.add(index);
+            render();
+            speakEnglish(HOBBIES_DATA[index].en);
+        }
+
+        function toggleFlashFlip() {
+            SoundFX.pop();
+            state.flashFlipped = !state.flashFlipped;
+            render();
+        }
+
+        function finishFlashcards() {
+            SoundFX.win();
+            Confetti.launch();
+            state.lastMode = 'flashcards';
+            state.lastModeTitle = 'Belajar Kosakata (Flashcards)';
+            state.correctCount = HOBBIES_DATA.length;
+            state.questions = HOBBIES_DATA;
+            state.sessionScore = 100;
+            state.totalScore += 100;
+            state.totalStars += 3;
+            saveProgress();
+            state.screen = 'result';
+            updateHUD();
+            render();
+        }
+
+        // --- MODE B: TEBAK HOBI (QUIZ GAMBAR & AUDIO) ---
+        function startQuiz() {
+            SoundFX.click();
+            state.screen = 'quiz';
+            state.lastMode = 'quiz';
+            state.lastModeTitle = 'Tebak Hobi (Quiz)';
+            state.questions = shuffleArray(HOBBIES_DATA).slice(0, 8);
+            state.qIndex = 0;
+            state.sessionScore = 0;
+            state.correctCount = 0;
+            setupQuizQuestion();
+            updateHUD();
+            render();
+        }
+
+        function setupQuizQuestion() {
+            const current = state.questions[state.qIndex];
+            const distractors = shuffleArray(HOBBIES_DATA.filter(h => h.id !== current.id)).slice(0, 3);
+            state.quizOptions = shuffleArray([current, ...distractors]);
+            state.answered = false;
+            state.selectedOptionId = null;
+            state.feedbackMsg = '';
+            state.feedbackType = '';
+
+            // Bacakan kosakata Bahasa Inggris secara otomatis
+            setTimeout(() => speakEnglish(current.en), 250);
+        }
+
+        function answerQuiz(optionId) {
+            if (state.answered) return;
+            const current = state.questions[state.qIndex];
+            state.answered = true;
+            state.selectedOptionId = optionId;
+
+            if (optionId === current.id) {
+                SoundFX.correct();
+                state.correctCount++;
+                state.sessionScore += 20;
+                state.totalScore += 20;
+                saveProgress();
+                state.feedbackType = 'success';
+                const praises = [
+                    `Hebat! "${current.en}" artinya ${current.idText}! 🌟`,
+                    `Pintar sekali! Jawabannya memang "${current.en}"! 🎉`,
+                    `Luar biasa! Kamu benar: "${current.en}"! 👏`
+                ];
+                state.feedbackMsg = praises[Math.floor(Math.random() * praises.length)];
+                speakEnglish(current.en);
+            } else {
+                SoundFX.wrong();
+                state.feedbackType = 'error';
+                state.feedbackMsg = `Ayo semangat! Gambar ini adalah "${current.en}" (${current.idText}). 💪`;
+                speakEnglish(current.en);
+            }
+            render();
+        }
+
+        function nextQuizQuestion() {
+            SoundFX.click();
+            if (state.qIndex + 1 < state.questions.length) {
+                state.qIndex++;
+                setupQuizQuestion();
+                render();
+            } else {
+                finishGameSession();
+            }
+        }
+
+        // --- MODE C: SUSUN HURUF (SPELLING BEE) ---
+        function startSpelling() {
+            SoundFX.click();
+            state.screen = 'spelling';
+            state.lastMode = 'spelling';
+            state.lastModeTitle = 'Susun Huruf (Spelling Bee)';
+            state.questions = shuffleArray(HOBBIES_DATA).slice(0, 8);
+            state.qIndex = 0;
+            state.sessionScore = 0;
+            state.correctCount = 0;
+            setupSpellingQuestion();
+            updateHUD();
+            render();
+        }
+
+        function setupSpellingQuestion() {
+            const current = state.questions[state.qIndex];
+            const targetUpper = current.en.toUpperCase();
+            state.spellingTarget = targetUpper;
+            state.answered = false;
+            state.feedbackMsg = '';
+            state.feedbackType = '';
+
+            // Slot jawaban: spasi langsung terisi ' ', huruf diisi null
+            state.spellingSlots = targetUpper.split('').map(ch => (ch === ' ' ? ' ' : null));
+
+            // Bank huruf acak (hanya huruf tanpa spasi)
+            const lettersOnly = targetUpper.replace(/\s+/g, '').split('');
+            const shuffled = shuffleArray(lettersOnly);
+            state.spellingBank = shuffled.map((char, idx) => ({
+                id: idx,
+                char: char,
+                used: false
+            }));
+
+            setTimeout(() => speakEnglish(current.en), 250);
+        }
+
+        function pickSpellingLetter(bankId) {
+            if (state.answered) return;
+            const item = state.spellingBank.find(b => b.id === bankId);
+            if (!item || item.used) return;
+
+            const emptyIdx = state.spellingSlots.findIndex(slot => slot === null);
+            if (emptyIdx === -1) return;
+
+            SoundFX.pop();
+            item.used = true;
+            state.spellingSlots[emptyIdx] = { bankId: item.id, char: item.char };
+
+            // Periksa otomatis jika semua slot huruf telah terisi
+            if (!state.spellingSlots.includes(null)) {
+                checkSpellingAnswer();
+            } else {
+                render();
+            }
+        }
+
+        function removeSpellingSlot(slotIdx) {
+            if (state.answered) return;
+            const slotVal = state.spellingSlots[slotIdx];
+            if (!slotVal || slotVal === ' ') return;
+
+            SoundFX.click();
+            const bankItem = state.spellingBank.find(b => b.id === slotVal.bankId);
+            if (bankItem) bankItem.used = false;
+            state.spellingSlots[slotIdx] = null;
+            state.feedbackMsg = '';
+            render();
+        }
+
+        function resetSpellingSlots() {
+            if (state.answered) return;
+            SoundFX.click();
+            state.spellingSlots = state.spellingTarget.split('').map(ch => (ch === ' ' ? ' ' : null));
+            state.spellingBank.forEach(b => (b.used = false));
+            state.feedbackMsg = '';
+            render();
+        }
+
+        function hintSpellingLetter() {
+            if (state.answered) return;
+            // Cari indeks pertama yang kosong atau hurufnya salah
+            let targetIdx = -1;
+            for (let i = 0; i < state.spellingTarget.length; i++) {
+                if (state.spellingTarget[i] === ' ') continue;
+                const currentSlot = state.spellingSlots[i];
+                if (!currentSlot || currentSlot.char !== state.spellingTarget[i]) {
+                    targetIdx = i;
+                    break;
+                }
+            }
+            if (targetIdx === -1) return;
+
+            SoundFX.pop();
+            const neededChar = state.spellingTarget[targetIdx];
+
+            // Jika di posisi targetIdx ada huruf yang salah, kembalikan ke bank dulu
+            if (state.spellingSlots[targetIdx] && state.spellingSlots[targetIdx] !== ' ') {
+                const wrongBank = state.spellingBank.find(b => b.id === state.spellingSlots[targetIdx].bankId);
+                if (wrongBank) wrongBank.used = false;
+                state.spellingSlots[targetIdx] = null;
+            }
+
+            // Cari huruf yang dibutuhkan dari bank yang belum dipakai, atau ambil dari slot salah lainnya
+            let matchingBank = state.spellingBank.find(b => !b.used && b.char === neededChar);
+            if (!matchingBank) {
+                // Cari di slot lain yang posisinya salah
+                for (let j = 0; j < state.spellingSlots.length; j++) {
+                    const s = state.spellingSlots[j];
+                    if (s && s !== ' ' && s.char === neededChar && state.spellingTarget[j] !== neededChar) {
+                        matchingBank = state.spellingBank.find(b => b.id === s.bankId);
+                        state.spellingSlots[j] = null;
+                        break;
+                    }
+                }
+            }
+
+            if (matchingBank) {
+                matchingBank.used = true;
+                state.spellingSlots[targetIdx] = { bankId: matchingBank.id, char: matchingBank.char };
+            }
+
+            if (!state.spellingSlots.includes(null)) {
+                checkSpellingAnswer();
+            } else {
+                render();
+            }
+        }
+
+        function checkSpellingAnswer() {
+            const current = state.questions[state.qIndex];
+            const assembled = state.spellingSlots
+                .map(s => (s === ' ' ? ' ' : s ? s.char : ''))
+                .join('');
+
+            if (assembled === state.spellingTarget) {
+                SoundFX.correct();
+                state.answered = true;
+                state.correctCount++;
+                state.sessionScore += 25;
+                state.totalScore += 25;
+                saveProgress();
+                state.feedbackType = 'success';
+                state.feedbackMsg = `Pintar sekali! Ejaan "${current.en}" tepat 100%! 🌟`;
+                speakEnglish(current.en);
+            } else {
+                SoundFX.wrong();
+                state.feedbackType = 'error';
+                state.feedbackMsg = 'Hampir tepat! Urutan hurufnya belum pas, ketuk huruf di kotak atas untuk memperbaiki ya! 💪';
+                render();
+                const box = document.getElementById('spellingAnswerBox');
+                if (box) {
+                    box.classList.remove('animate-shake');
+                    void box.offsetWidth;
+                    box.classList.add('animate-shake');
+                }
+                return;
+            }
+            render();
+        }
+
+        function nextSpellingQuestion() {
+            SoundFX.click();
+            if (state.qIndex + 1 < state.questions.length) {
+                state.qIndex++;
+                setupSpellingQuestion();
+                render();
+            } else {
+                finishGameSession();
+            }
+        }
+
+        // --- MODE D: SUSUN KALIMAT (SENTENCE BUILDER) ---
+        function startSentence() {
+            SoundFX.click();
+            state.screen = 'sentence';
+            state.lastMode = 'sentence';
+            state.lastModeTitle = 'Susun Kalimat (Sentence Builder)';
+            state.questions = shuffleArray(SENTENCE_CHALLENGES).slice(0, 8);
+            state.qIndex = 0;
+            state.sessionScore = 0;
+            state.correctCount = 0;
+            setupSentenceQuestion();
+            updateHUD();
+            render();
+        }
+
+        function setupSentenceQuestion() {
+            const current = state.questions[state.qIndex];
+            state.sentenceTargetWords = [...current.words];
+            state.sentenceSelected = [];
+            state.answered = false;
+            state.feedbackMsg = '';
+            state.feedbackType = '';
+
+            // Pastikan kata-kata diacak sehingga tidak langsung berurutan
+            let shuffled = shuffleArray(current.words);
+            if (shuffled.join(' ') === current.words.join(' ') && current.words.length > 1) {
+                shuffled = [...current.words].reverse();
+            }
+
+            state.sentenceBank = shuffled.map((w, idx) => ({
+                id: idx,
+                word: w,
+                used: false
+            }));
+
+            setTimeout(() => speakEnglish(current.words.join(' ') + '.'), 250);
+        }
+
+        function pickSentenceWord(bankId) {
+            if (state.answered) return;
+            const item = state.sentenceBank.find(b => b.id === bankId);
+            if (!item || item.used) return;
+
+            SoundFX.pop();
+            item.used = true;
+            state.sentenceSelected.push({ bankId: item.id, word: item.word });
+            state.feedbackMsg = '';
+
+            if (state.sentenceSelected.length === state.sentenceTargetWords.length) {
+                checkSentenceAnswer();
+            } else {
+                render();
+            }
+        }
+
+        function removeSentenceWord(selIdx) {
+            if (state.answered) return;
+            const removed = state.sentenceSelected[selIdx];
+            if (!removed) return;
+
+            SoundFX.click();
+            const bankItem = state.sentenceBank.find(b => b.id === removed.bankId);
+            if (bankItem) bankItem.used = false;
+            state.sentenceSelected.splice(selIdx, 1);
+            state.feedbackMsg = '';
+            render();
+        }
+
+        function resetSentenceWords() {
+            if (state.answered) return;
+            SoundFX.click();
+            state.sentenceSelected = [];
+            state.sentenceBank.forEach(b => (b.used = false));
+            state.feedbackMsg = '';
+            render();
+        }
+
+        function checkSentenceAnswer() {
+            const userSentence = state.sentenceSelected.map(s => s.word).join(' ');
+            const targetSentence = state.sentenceTargetWords.join(' ');
+
+            if (userSentence === targetSentence) {
+                SoundFX.correct();
+                state.answered = true;
+                state.correctCount++;
+                state.sessionScore += 30;
+                state.totalScore += 30;
+                saveProgress();
+                state.feedbackType = 'success';
+                state.feedbackMsg = `Hebat sekali! "${targetSentence}." adalah kalimat yang benar! 🎉`;
+                speakEnglish(targetSentence + '.');
+                render();
+            } else {
+                SoundFX.wrong();
+                state.feedbackType = 'error';
+                state.feedbackMsg = 'Ayo coba lagi! Urutan katanya masih tertukar. Ketuk kata di kotak atas untuk mengubahnya! 😊';
+                render();
+                const box = document.getElementById('sentenceDropBox');
+                if (box) {
+                    box.classList.remove('animate-shake');
+                    void box.offsetWidth;
+                    box.classList.add('animate-shake');
+                }
+            }
+        }
+
+        function nextSentenceQuestion() {
+            SoundFX.click();
+            if (state.qIndex + 1 < state.questions.length) {
+                state.qIndex++;
+                setupSentenceQuestion();
+                render();
+            } else {
+                finishGameSession();
+            }
+        }
+
+        // --- SELESAI SESI PERMAINAN & PERHITUNGAN BINTANG ---
+        function finishGameSession() {
+            SoundFX.win();
+            Confetti.launch();
+
+            const totalQ = state.questions.length;
+            const ratio = state.correctCount / totalQ;
+            let earnedStars = 1;
+            if (ratio >= 0.85) earnedStars = 3;
+            else if (ratio >= 0.5) earnedStars = 2;
+
+            state.earnedStars = earnedStars;
+            state.totalStars += earnedStars;
+            saveProgress();
+
+            state.screen = 'result';
+            updateHUD();
+            render();
+        }
+
+        function replayLastMode() {
+            if (state.lastMode === 'flashcards') startFlashcards();
+            else if (state.lastMode === 'quiz') startQuiz();
+            else if (state.lastMode === 'spelling') startSpelling();
+            else if (state.lastMode === 'sentence') startSentence();
+            else goHome();
+        }
+
+        /* =========================================================================
+           6. RENDER TAMPILAN UI SETIAP HALAMAN
+           ========================================================================= */
+        function render() {
+            const container = document.getElementById('appContainer');
+
+            if (state.screen === 'menu') {
+                container.innerHTML = renderMenuScreen();
+            } else if (state.screen === 'flashcards') {
+                container.innerHTML = renderFlashcardsScreen();
+            } else if (state.screen === 'quiz') {
+                container.innerHTML = renderQuizScreen();
+            } else if (state.screen === 'spelling') {
+                container.innerHTML = renderSpellingScreen();
+            } else if (state.screen === 'sentence') {
+                container.innerHTML = renderSentenceScreen();
+            } else if (state.screen === 'result') {
+                container.innerHTML = renderResultScreen();
+            }
+        }
+
+        // --- LAYAR 1: MENU UTAMA ---
+        function renderMenuScreen() {
+            return `
+                <div class="animate-pop flex flex-col items-center text-center my-auto">
+                    <!-- Banner Judul Ceria -->
+                    <div class="story-card w-full max-w-3xl p-5 sm:p-7 mb-5 sm:mb-7 relative overflow-hidden">
+                        <div class="flex justify-center items-center gap-2 sm:gap-4 mb-2">
+                            <span class="text-4xl sm:text-5xl animate-float-slow">🎨</span>
+                            <span class="text-4xl sm:text-5xl animate-float-slow" style="animation-delay: 0.3s">⚽</span>
+                            <span class="text-4xl sm:text-5xl animate-float-slow" style="animation-delay: 0.6s">📖</span>
+                            <span class="text-4xl sm:text-5xl animate-float-slow" style="animation-delay: 0.9s">🎤</span>
+                        </div>
+                        <div class="inline-block bg-amber-100 border-2 border-amber-300 text-amber-800 font-extrabold text-xs sm:text-sm px-4 py-1 rounded-full mb-2">
+                            ✨ Kurikulum Merdeka • Kelas 3 SD ✨
+                        </div>
+                        <h1 class="font-fredoka font-bold text-3xl sm:text-5xl text-sky-600 drop-shadow-sm tracking-tight">
+                            English Adventure:
+                            <span class="block text-orange-500 mt-1">My Hobby!</span>
+                        </h1>
+                        <p class="text-slate-600 font-bold text-sm sm:text-base mt-2 max-w-xl mx-auto">
+                            Ayo belajar kosakata hobi dalam Bahasa Inggris sambil bermain tebak gambar, menyusun huruf, dan merangkai kalimat!
+                        </p>
+                    </div>
+
+                    <!-- Grid 4 Pilihan Mode Belajar & Bermain -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full max-w-3xl">
+                        <!-- Mode 1: Flashcards -->
+                        <button onclick="startFlashcards()" class="btn-3d btn-yellow rounded-3xl p-5 text-left flex items-center gap-4">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 flex items-center justify-center text-4xl sm:text-5xl shadow-inner shrink-0">
+                                🃏
+                            </div>
+                            <div>
+                                <span class="inline-block bg-amber-800/15 text-amber-950 text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">
+                                    12 Kosakata + Suara
+                                </span>
+                                <h2 class="font-fredoka font-bold text-xl sm:text-2xl leading-tight">Belajar Kosakata</h2>
+                                <p class="text-xs sm:text-sm font-bold opacity-85 mt-0.5">Kartu kata, arti & contoh kalimat</p>
+                            </div>
+                        </button>
+
+                        <!-- Mode 2: Tebak Hobi -->
+                        <button onclick="startQuiz()" class="btn-3d btn-green rounded-3xl p-5 text-left flex items-center gap-4">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 flex items-center justify-center text-4xl sm:text-5xl shadow-inner shrink-0">
+                                🎯
+                            </div>
+                            <div>
+                                <span class="inline-block bg-black/15 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">
+                                    8 Soal Seru
+                                </span>
+                                <h2 class="font-fredoka font-bold text-xl sm:text-2xl leading-tight">Tebak Hobi</h2>
+                                <p class="text-xs sm:text-sm font-bold text-white/90 mt-0.5">Kuis gambar & tebak suara</p>
+                            </div>
+                        </button>
+
+                        <!-- Mode 3: Susun Huruf -->
+                        <button onclick="startSpelling()" class="btn-3d btn-orange rounded-3xl p-5 text-left flex items-center gap-4">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 flex items-center justify-center text-4xl sm:text-5xl shadow-inner shrink-0">
+                                🔤
+                            </div>
+                            <div>
+                                <span class="inline-block bg-black/15 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">
+                                    Spelling Bee
+                                </span>
+                                <h2 class="font-fredoka font-bold text-xl sm:text-2xl leading-tight">Susun Huruf</h2>
+                                <p class="text-xs sm:text-sm font-bold text-white/90 mt-0.5">Rangkai huruf menjadi kata hobi</p>
+                            </div>
+                        </button>
+
+                        <!-- Mode 4: Susun Kalimat -->
+                        <button onclick="startSentence()" class="btn-3d btn-purple rounded-3xl p-5 text-left flex items-center gap-4">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 flex items-center justify-center text-4xl sm:text-5xl shadow-inner shrink-0">
+                                🧩
+                            </div>
+                            <div>
+                                <span class="inline-block bg-black/15 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">
+                                    Sentence Builder
+                                </span>
+                                <h2 class="font-fredoka font-bold text-xl sm:text-2xl leading-tight">Susun Kalimat</h2>
+                                <p class="text-xs sm:text-sm font-bold text-white/90 mt-0.5">Buat kalimat "My hobby is..."</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- LAYAR 2: BELAJAR KOSAKATA (FLASHCARDS) ---
+        function renderFlashcardsScreen() {
+            const item = HOBBIES_DATA[state.flashIndex];
+            const total = HOBBIES_DATA.length;
+            const visitedCount = state.flashVisited.size;
+
+            return `
+                <div class="animate-pop w-full max-w-2xl mx-auto flex flex-col items-center">
+                    <!-- Header Mode -->
+                    <div class="w-full flex items-center justify-between mb-3 px-1">
+                        <span class="bg-white/90 border-2 border-sky-200 text-sky-700 font-fredoka font-bold px-4 py-1.5 rounded-2xl text-sm sm:text-base shadow-sm">
+                            🃏 Kartu ${state.flashIndex + 1} dari ${total}
+                        </span>
+                        <span class="bg-amber-100 border-2 border-amber-300 text-amber-800 font-extrabold px-3 py-1.5 rounded-2xl text-xs sm:text-sm">
+                            Dipelajari: ${visitedCount}/${total}
+                        </span>
+                    </div>
+
+                    <!-- Kartu Utama Flashcard -->
+                    <div class="story-card w-full p-5 sm:p-8 text-center relative">
+                        <!-- Ilustrasi Besar -->
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-3xl bg-gradient-to-br ${item.bgClass} p-1.5 shadow-lg mb-4 flex items-center justify-center relative">
+                            <div class="w-full h-full bg-white/95 rounded-[20px] flex flex-col items-center justify-center">
+                                <span class="text-6xl sm:text-7xl animate-float-slow">${item.emoji}</span>
+                                <span class="text-sm sm:text-base mt-1">${item.decor}</span>
+                            </div>
+                        </div>
+
+                        <!-- Kata Bahasa Inggris & Tombol Speaker -->
+                        <div class="flex flex-wrap items-center justify-center gap-3 mb-2">
+                            <h2 class="font-fredoka font-bold text-3xl sm:text-4xl text-slate-800">${item.en}</h2>
+                            <button onclick="speakEnglish('${item.en}')" class="btn-3d btn-blue px-4 py-2 rounded-2xl font-fredoka font-bold text-base flex items-center gap-1.5" title="Dengarkan pengucapan">
+                                <span>🔊</span>
+                                <span class="text-sm">Dengar</span>
+                            </button>
+                        </div>
+
+                        <!-- Arti Bahasa Indonesia -->
+                        <div class="inline-block ${item.badgeBg} border-2 px-5 py-1.5 rounded-2xl mb-5">
+                            <span class="font-extrabold text-slate-700 text-lg sm:text-xl">Artinya: ${item.idText}</span>
+                        </div>
+
+                        <!-- Kotak Contoh Kalimat -->
+                        <div class="bg-sky-50 border-2 border-sky-200 rounded-2xl p-4 text-left sm:text-center">
+                            <div class="text-xs font-extrabold uppercase tracking-wider text-sky-600 mb-1">
+                                💬 Contoh Kalimat (Example):
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2">
+                                <p class="font-fredoka font-bold text-lg sm:text-xl text-slate-800">"${item.exampleEn}"</p>
+                                <button onclick="speakEnglish('${item.exampleEn}')" class="btn-3d btn-green px-3 py-1.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-1 shrink-0">
+                                    <span>🔊</span>
+                                    <span>Baca Kalimat</span>
+                                </button>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 mt-1">(${item.exampleId})</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigasi Sebelumnya / Selanjutnya -->
+                    <div class="w-full flex items-center justify-between gap-3 mt-4">
+                        <button onclick="changeFlashcard(-1)" class="btn-3d btn-white flex-1 py-3.5 rounded-2xl font-fredoka font-bold text-base sm:text-lg">
+                            ⬅️ Sebelumnya
+                        </button>
+
+                        ${visitedCount === total ? `
+                            <button onclick="finishFlashcards()" class="btn-3d btn-green flex-1 py-3.5 rounded-2xl font-fredoka font-bold text-base sm:text-lg">
+                                Selesai & Ambil Bintang ⭐
+                            </button>
+                        ` : `
+                            <button onclick="changeFlashcard(1)" class="btn-3d btn-yellow flex-1 py-3.5 rounded-2xl font-fredoka font-bold text-base sm:text-lg">
+                                Berikutnya ➡️
+                            </button>
+                        `}
+                    </div>
+
+                    <!-- Titik Navigasi Cepat 12 Kartu -->
+                    <div class="flex flex-wrap justify-center gap-1.5 mt-4">
+                        ${HOBBIES_DATA.map((h, idx) => `
+                            <button onclick="selectFlashcard(${idx})" class="w-8 h-8 rounded-xl font-fredoka font-bold text-xs transition-all ${
+                                idx === state.flashIndex
+                                    ? 'bg-sky-500 text-white scale-110 shadow-md ring-2 ring-white'
+                                    : state.flashVisited.has(idx)
+                                    ? 'bg-emerald-400 text-white'
+                                    : 'bg-white/80 text-slate-600 hover:bg-white'
+                            }">
+                                ${idx + 1}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- LAYAR 3: TEBAK HOBI (QUIZ GAMBAR & AUDIO) ---
+        function renderQuizScreen() {
+            const current = state.questions[state.qIndex];
+            const progressPct = ((state.qIndex + (state.answered ? 1 : 0)) / state.questions.length) * 100;
+
+            return `
+                <div class="animate-pop w-full max-w-2xl mx-auto flex flex-col items-center">
+                    <!-- Bar Kemajuan Soal -->
+                    <div class="w-full bg-white/90 rounded-2xl p-3 mb-4 border-2 border-white shadow-sm">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-extrabold text-slate-600 mb-1.5">
+                            <span>🎯 Soal ${state.qIndex + 1} / ${state.questions.length}</span>
+                            <span class="text-emerald-600">Benar: ${state.correctCount}</span>
+                        </div>
+                        <div class="w-full h-3.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-emerald-400 to-green-500 rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Pertanyaan -->
+                    <div class="story-card w-full p-5 sm:p-6 text-center mb-4">
+                        <p class="font-fredoka font-bold text-lg sm:text-xl text-sky-700 mb-3">
+                            Hobi apakah ini dalam Bahasa Inggris?
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <!-- Gambar Hobi -->
+                            <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-3xl bg-gradient-to-br ${current.bgClass} p-1.5 shadow-md flex items-center justify-center">
+                                <div class="w-full h-full bg-white rounded-[20px] flex flex-col items-center justify-center">
+                                    <span class="text-6xl sm:text-7xl">${current.emoji}</span>
+                                    <span class="text-sm mt-1">${current.decor}</span>
+                                </div>
+                            </div>
+
+                            <!-- Tombol Petunjuk Suara -->
+                            <button onclick="speakEnglish('${current.en}')" class="btn-3d btn-blue px-5 py-3.5 rounded-2xl font-fredoka font-bold text-base sm:text-lg flex items-center gap-2">
+                                <span class="text-2xl">🔊</span>
+                                <span>Dengarkan Kata</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4 Pilihan Jawaban -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                        ${state.quizOptions.map(opt => {
+                            let btnStyle = 'btn-white';
+                            let icon = '';
+                            if (state.answered) {
+                                if (opt.id === current.id) {
+                                    btnStyle = 'btn-green';
+                                    icon = '✅ ';
+                                } else if (opt.id === state.selectedOptionId) {
+                                    btnStyle = 'btn-red';
+                                    icon = '❌ ';
+                                }
+                            }
+                            return `
+                                <button
+                                    onclick="answerQuiz('${opt.id}')"
+                                    ${state.answered ? 'disabled' : ''}
+                                    class="btn-3d ${btnStyle} py-4 px-5 rounded-2xl font-fredoka font-bold text-lg sm:text-xl text-center shadow-md"
+                                >
+                                    ${icon}${opt.en}
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    <!-- Banner Umpan Balik & Tombol Lanjut -->
+                    ${state.answered ? `
+                        <div class="animate-pop w-full mt-4 p-4 rounded-2xl border-3 flex flex-col sm:flex-row items-center justify-between gap-3 ${
+                            state.feedbackType === 'success'
+                                ? 'bg-emerald-100 border-emerald-400 text-emerald-900'
+                                : 'bg-amber-100 border-amber-400 text-amber-950'
+                        }">
+                            <p class="font-extrabold text-sm sm:text-base text-center sm:text-left">${state.feedbackMsg}</p>
+                            <button onclick="nextQuizQuestion()" class="btn-3d btn-yellow px-6 py-2.5 rounded-xl font-fredoka font-bold text-base shrink-0">
+                                ${state.qIndex + 1 < state.questions.length ? 'Lanjut ➡️' : 'Lihat Hasil 🏆'}
+                            </button>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // --- LAYAR 4: SUSUN HURUF (SPELLING BEE) ---
+        function renderSpellingScreen() {
+            const current = state.questions[state.qIndex];
+            const progressPct = ((state.qIndex + (state.answered ? 1 : 0)) / state.questions.length) * 100;
+
+            // Kelompokkan slot berdasarkan kata agar frasa 2 kata (seperti PLAYING FOOTBALL) rapi dan mudah dibaca anak
+            const wordGroups = [];
+            let currentGroup = [];
+            state.spellingSlots.forEach((slot, idx) => {
+                if (slot === ' ') {
+                    wordGroups.push(currentGroup);
+                    currentGroup = [];
+                } else {
+                    currentGroup.push({ slot, idx });
+                }
+            });
+            if (currentGroup.length > 0) wordGroups.push(currentGroup);
+
+            return `
+                <div class="animate-pop w-full max-w-2xl mx-auto flex flex-col items-center">
+                    <!-- Bar Kemajuan -->
+                    <div class="w-full bg-white/90 rounded-2xl p-3 mb-3 border-2 border-white shadow-sm">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-extrabold text-slate-600 mb-1.5">
+                            <span>🔤 Susun Huruf • Soal ${state.qIndex + 1} / ${state.questions.length}</span>
+                            <span class="text-orange-600">Benar: ${state.correctCount}</span>
+                        </div>
+                        <div class="w-full h-3.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Petunjuk Gambar & Arti -->
+                    <div class="story-card w-full p-4 sm:p-5 text-center mb-3">
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br ${current.bgClass} p-1 shadow-md shrink-0">
+                                <div class="w-full h-full bg-white rounded-xl flex items-center justify-center text-5xl sm:text-6xl">
+                                    ${current.emoji}
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <span class="text-xs font-extrabold uppercase text-orange-500 tracking-wide">Susun Kata Bahasa Inggris:</span>
+                                <h2 class="font-fredoka font-bold text-xl sm:text-2xl text-slate-800 mt-0.5">${current.idText}</h2>
+                                <button onclick="speakEnglish('${current.en}')" class="btn-3d btn-blue mt-2 px-3.5 py-1.5 rounded-xl font-fredoka font-bold text-xs sm:text-sm inline-flex items-center gap-1.5">
+                                    <span>🔊</span>
+                                    <span>Dengar Suara</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Kotak Slot Jawaban Huruf -->
+                        <div id="spellingAnswerBox" class="mt-4 bg-sky-50 border-2 border-dashed border-sky-300 rounded-2xl p-3 sm:p-4 flex flex-wrap items-center justify-center gap-3">
+                            ${wordGroups.map(group => `
+                                <div class="flex flex-wrap justify-center gap-1.5">
+                                    ${group.map(({ slot, idx }) => `
+                                        <button
+                                            onclick="removeSpellingSlot(${idx})"
+                                            ${state.answered || !slot ? 'disabled' : ''}
+                                            class="w-9 h-11 sm:w-11 sm:h-12 rounded-xl font-fredoka font-bold text-lg sm:text-xl flex items-center justify-center transition-all ${
+                                                slot
+                                                    ? state.answered
+                                                        ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow'
+                                                        : 'bg-amber-300 text-amber-950 border-b-4 border-amber-500 shadow hover:bg-amber-200 cursor-pointer'
+                                                    : 'bg-white border-2 border-slate-300 text-transparent'
+                                            }"
+                                        >
+                                            ${slot ? slot.char : '_'}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Bank Huruf Acak & Tombol Bantuan -->
+                    ${!state.answered ? `
+                        <div class="w-full bg-white/90 rounded-2xl p-4 border-2 border-white shadow-md">
+                            <div class="flex flex-wrap justify-center gap-2 mb-3">
+                                ${state.spellingBank.map(item => `
+                                    <button
+                                        onclick="pickSpellingLetter(${item.id})"
+                                        ${item.used ? 'disabled' : ''}
+                                        class="btn-3d btn-white w-10 h-11 sm:w-12 sm:h-12 rounded-xl font-fredoka font-bold text-lg sm:text-xl ${
+                                            item.used ? 'opacity-25 scale-90' : ''
+                                        }"
+                                    >
+                                        ${item.char}
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div class="flex items-center justify-center gap-2.5 pt-1 border-t border-slate-200">
+                                <button onclick="resetSpellingSlots()" class="btn-3d btn-white px-4 py-2 rounded-xl font-fredoka font-bold text-xs sm:text-sm">
+                                    🔄 Ulangi
+                                </button>
+                                <button onclick="hintSpellingLetter()" class="btn-3d btn-yellow px-4 py-2 rounded-xl font-fredoka font-bold text-xs sm:text-sm">
+                                    💡 Petunjuk Huruf
+                                </button>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- Umpan Balik -->
+                    ${state.feedbackMsg ? `
+                        <div class="animate-pop w-full mt-3 p-3.5 rounded-2xl border-3 flex flex-col sm:flex-row items-center justify-between gap-3 ${
+                            state.feedbackType === 'success'
+                                ? 'bg-emerald-100 border-emerald-400 text-emerald-900'
+                                : 'bg-rose-100 border-rose-300 text-rose-900'
+                        }">
+                            <p class="font-extrabold text-sm sm:text-base text-center sm:text-left">${state.feedbackMsg}</p>
+                            ${state.answered ? `
+                                <button onclick="nextSpellingQuestion()" class="btn-3d btn-green px-6 py-2.5 rounded-xl font-fredoka font-bold text-base shrink-0">
+                                    ${state.qIndex + 1 < state.questions.length ? 'Lanjut ➡️' : 'Lihat Hasil 🏆'}
+                                </button>
+                            ` : ''}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // --- LAYAR 5: SUSUN KALIMAT (SENTENCE BUILDER) ---
+        function renderSentenceScreen() {
+            const current = state.questions[state.qIndex];
+            const hobby = HOBBIES_DATA.find(h => h.id === current.hobbyId);
+            const fullSentence = current.words.join(' ') + '.';
+            const progressPct = ((state.qIndex + (state.answered ? 1 : 0)) / state.questions.length) * 100;
+
+            return `
+                <div class="animate-pop w-full max-w-2xl mx-auto flex flex-col items-center">
+                    <!-- Bar Kemajuan -->
+                    <div class="w-full bg-white/90 rounded-2xl p-3 mb-3 border-2 border-white shadow-sm">
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-extrabold text-slate-600 mb-1.5">
+                            <span>🧩 Susun Kalimat • Soal ${state.qIndex + 1} / ${state.questions.length}</span>
+                            <span class="text-purple-600">Benar: ${state.correctCount}</span>
+                        </div>
+                        <div class="w-full h-3.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-400 to-fuchsia-500 rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Petunjuk Kalimat -->
+                    <div class="story-card w-full p-4 sm:p-5 mb-3">
+                        <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-br ${hobby.bgClass} p-1 shadow-md shrink-0">
+                                <div class="w-full h-full bg-white rounded-xl flex items-center justify-center text-5xl">
+                                    ${hobby.emoji}
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <span class="text-xs font-extrabold uppercase text-purple-600 tracking-wide">Susun menjadi kalimat Bahasa Inggris:</span>
+                                <h2 class="font-fredoka font-bold text-lg sm:text-2xl text-slate-800 mt-0.5">"${current.idHint}"</h2>
+                                <button onclick="speakEnglish('${fullSentence}')" class="btn-3d btn-blue mt-2 px-3.5 py-1.5 rounded-xl font-fredoka font-bold text-xs sm:text-sm inline-flex items-center gap-1.5">
+                                    <span>🔊</span>
+                                    <span>Dengar Kalimat</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Area Susunan Kalimat Siswa -->
+                        <div id="sentenceDropBox" class="mt-4 min-h-[76px] bg-purple-50 border-2 border-dashed border-purple-300 rounded-2xl p-3 flex flex-wrap items-center justify-center gap-2">
+                            ${state.sentenceSelected.length === 0 ? `
+                                <span class="text-sm font-bold text-purple-400">Ketuk potongan kata di bawah untuk menyusun kalimat...</span>
+                            ` : state.sentenceSelected.map((item, idx) => `
+                                <button
+                                    onclick="removeSentenceWord(${idx})"
+                                    ${state.answered ? 'disabled' : ''}
+                                    class="btn-3d ${state.answered ? 'btn-green' : 'btn-yellow'} px-4 py-2 rounded-xl font-fredoka font-bold text-base sm:text-lg"
+                                >
+                                    ${item.word}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Pilihan Potongan Kata Acak -->
+                    ${!state.answered ? `
+                        <div class="w-full bg-white/90 rounded-2xl p-4 border-2 border-white shadow-md">
+                            <div class="flex flex-wrap justify-center gap-2.5 mb-3">
+                                ${state.sentenceBank.map(item => `
+                                    <button
+                                        onclick="pickSentenceWord(${item.id})"
+                                        ${item.used ? 'disabled' : ''}
+                                        class="btn-3d btn-white px-4 py-2.5 rounded-xl font-fredoka font-bold text-base sm:text-lg ${
+                                            item.used ? 'opacity-25 scale-90' : ''
+                                        }"
+                                    >
+                                        ${item.word}
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div class="flex justify-center pt-1 border-t border-slate-200">
+                                <button onclick="resetSentenceWords()" class="btn-3d btn-white px-4 py-2 rounded-xl font-fredoka font-bold text-xs sm:text-sm">
+                                    🔄 Ulangi Susunan
+                                </button>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- Umpan Balik -->
+                    ${state.feedbackMsg ? `
+                        <div class="animate-pop w-full mt-3 p-3.5 rounded-2xl border-3 flex flex-col sm:flex-row items-center justify-between gap-3 ${
+                            state.feedbackType === 'success'
+                                ? 'bg-emerald-100 border-emerald-400 text-emerald-900'
+                                : 'bg-rose-100 border-rose-300 text-rose-900'
+                        }">
+                            <p class="font-extrabold text-sm sm:text-base text-center sm:text-left">${state.feedbackMsg}</p>
+                            ${state.answered ? `
+                                <button onclick="nextSentenceQuestion()" class="btn-3d btn-green px-6 py-2.5 rounded-xl font-fredoka font-bold text-base shrink-0">
+                                    ${state.qIndex + 1 < state.questions.length ? 'Lanjut ➡️' : 'Lihat Hasil 🏆'}
+                                </button>
+                            ` : ''}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // --- LAYAR 6: HASIL AKHIR & PEROLEHAN BINTANG ---
+        function renderResultScreen() {
+            const stars = state.earnedStars || 3;
+            const totalQ = state.questions.length;
+            let titleText = 'Luar Biasa! Hebat Sekali!';
+            if (stars === 2) titleText = 'Bagus Sekali! Terus Berlatih!';
+            if (stars === 1) titleText = 'Semangat! Ayo Coba Lagi!';
+
+            return `
+                <div class="animate-pop w-full max-w-lg mx-auto">
+                    <div class="story-card p-6 sm:p-8 text-center">
+                        <span class="inline-block bg-sky-100 text-sky-700 font-extrabold text-xs sm:text-sm px-4 py-1 rounded-full mb-2">
+                            ${state.lastModeTitle}
+                        </span>
+                        <h2 class="font-fredoka font-bold text-2xl sm:text-4xl text-slate-800 mb-4">
+                            ${titleText}
+                        </h2>
+
+                        <!-- Tampilan 1 - 3 Bintang -->
+                        <div class="flex items-center justify-center gap-3 my-4">
+                            ${[1, 2, 3].map(num => `
+                                <span
+                                    class="text-5xl sm:text-6xl ${num <= stars ? 'animate-star drop-shadow-md' : 'opacity-25 grayscale'}"
+                                    style="animation-delay: ${num * 0.15}s"
+                                >
+                                    ⭐
+                                </span>
+                            `).join('')}
+                        </div>
+
+                        <!-- Ringkasan Skor -->
+                        <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 my-5 grid grid-cols-2 gap-3">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <span class="text-xs font-extrabold text-slate-500 block">Jawaban Benar</span>
+                                <span class="font-fredoka font-bold text-2xl text-emerald-600">${state.correctCount} / ${totalQ}</span>
+                            </div>
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <span class="text-xs font-extrabold text-slate-500 block">Skor Didapat</span>
+                                <span class="font-fredoka font-bold text-2xl text-amber-500">+${state.sessionScore}</span>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="replayLastMode()" class="btn-3d btn-green flex-1 py-3.5 rounded-2xl font-fredoka font-bold text-lg">
+                                🔄 Main Lagi
+                            </button>
+                            <button onclick="goHome()" class="btn-3d btn-yellow flex-1 py-3.5 rounded-2xl font-fredoka font-bold text-lg">
+                                🏠 Menu Utama
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Inisialisasi aplikasi saat halaman dimuat
+        window.onload = function () {
+            loadProgress();
+            render();
+        };
+    </script>
+</body>
+</html>
